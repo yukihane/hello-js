@@ -1,0 +1,12 @@
+{
+  "name": "secret-board",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "pug": "2.0.0-rc.4"
+  }
+}
