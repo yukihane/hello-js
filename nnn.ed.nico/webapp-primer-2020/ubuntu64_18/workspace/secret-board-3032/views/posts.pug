@@ -1,0 +1,46 @@
+doctype html
+html(lang="jp")
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet",
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm",
+    crossorigin="anonymous")
+    title 秘密の匿名掲示板
+  body.container
+    div.my-3
+      a(href="/logout").btn.btn-info.float-right ログアウト
+      h1 秘密の匿名掲示板
+    h2 新規投稿
+    form(method="post" action="/posts")
+      div.form-group
+        textarea(name="content" rows="4").form-control
+        input(type="hidden" name="oneTimeToken" value=oneTimeToken)
+      div.form-group
+        button(type="submit").btn.btn-primary 投稿
+    h2 投稿一覧
+    each post in posts
+      div.card.my-3
+        div.card-header
+            - var isPostedByAdmin = (post.postedBy === 'admin')
+            if isPostedByAdmin
+              span #{post.id} : 管理人 ★
+            else
+              - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
+              span #{post.id} : ID:#{originalTrackingId}  
+        div.card-body
+          p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
+        div.card-footer
+            div 投稿日時: #{post.formattedCreatedAt}
+            - var isAdmin = (user === 'admin')
+            if isAdmin
+              div 投稿者: #{post.postedBy}
+            - var isDeletable = (user === post.postedBy || isAdmin)
+            if isDeletable
+              form(method="post" action="/posts?delete=1")
+                input(type="hidden" name="id" value=post.id)
+                button(type="submit").btn.btn-danger.float-right 削除
+    script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
+    crossorigin="anonymous")
