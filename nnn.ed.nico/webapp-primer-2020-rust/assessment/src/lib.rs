@@ -45,7 +45,7 @@ const ANSWERS :[&str;16] = [
 #[wasm_bindgen]
 pub fn assessment(user_name: &str) -> String {
   let sum = user_name.chars().map(|x| x as u32).sum();
-  let index = (sum % (ANSWERS.len() as u32)) as usize;
+  let index: usize = (sum % (ANSWERS.len() as u32)) as usize;
 
   ANSWERS[index].replace("{userName}", user_name)
 }
