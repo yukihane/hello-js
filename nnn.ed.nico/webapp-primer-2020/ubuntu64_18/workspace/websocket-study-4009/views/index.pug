@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  if user
+    p Hello, #{user.username}
+    a(href="/logout") Logout
+  else
+    a(href="/login") Login
+  div#block.block
+  button#scaling-button 拡大縮小
+  button#moving-button 移動
+  h1 サーバーステータス
+  h3 ロードアベレージ
+  p#loadavg
