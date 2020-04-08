@@ -1,0 +1,28 @@
+{
+  "name": "webpack-study",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "damage-calc": "https://github.com/progedu/damage-calc-4006.git",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.8.2",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.9",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.6",
+    "@babel/preset-env": "7.1.6",
+    "babel-loader": "8.0.4",
+    "webpack": "4.26.1",
+    "webpack-cli": "3.1.2"
+  }
+}
