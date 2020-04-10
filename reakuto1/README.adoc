@@ -1,0 +1,60 @@
+= りあクト！ TypeScriptで始めるつらくないReact開発 第2版
+
+https://booth.pm/ja/items/1312652
+
+== メモ
+
+=== 1-1.環境構築(p.17-)
+
+* オフィシャルでは `npm install -g yarn` でのインストールを指示していない: https://stackoverflow.com/q/40025890/4506703
+* `hex-ci.stylelint-plus` でなく https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint[`stylelint.vscode-stylelint`]が良いらしい: https://qiita.com/ota-meshi/items/1599fa6e7042f00635d5
+
+=== 1-2. Hello, World!(p.20-)
+
+* `npx create-react-app hello-world --typescript` でなく最近のドキュメントでの引数指定方法は `--template typescript`: https://qiita.com/yukihane/items/ef9c54133453e037e843
+
+=== 2-4. クラス構文(p.31-)
+
+____
+注意点としては、コンストラクタは継承されないので constructor() と明示的に書く必要があることくらいかな。
+____
+コンストラクタが継承される(継承されない)、の意味が不明確。
+
+後述サンプルコードのうち、 `FlyableBird` (`Bird` を継承している)クラスの `constructor(name)` を省略できない、ということを言いたい？むしろこのコンストラクタは冗長だと ESLint に怒られている。
+
+* https://eslint.org/docs/rules/no-useless-constructor
+* https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Classes/constructor
+
+https://ja.reactjs.org/docs/components-and-props.html[オフィシャルのドキュメント]に一番はじめに出てくる `React.Component` 継承クラスで既にコンストラクタは存在しないし、省略不可能であると考える要素が無いように思うが。
+
+[source,javascript]
+....
+class Bird {
+  constructor(name) {
+    this.name = name;
+  }
+  chirp() {
+    console.log(`${this.name} が 鳴 き ま し た `);
+  }
+  static explain(name) {
+    console.log(`${name} は 翼 が あ っ て 卵 を 生 み ま す `);
+  }
+}
+class FlyableBird extends Bird {
+  constructor(name) {
+    super(name);
+  }
+  fly() {
+    console.log(`${this.name} が 飛 び ま し た `);
+  }
+}
+const bd1 = new Bird(" ペ ン ギ ン ");
+bd1.chirp();
+// ペ ン ギ ン が 鳴 き ま し た
+Bird.explain(" カ ラ ス ");
+// カ ラ ス は 翼 が あ っ て 卵 を 生 み ま す
+const bd2 = new FlyableBird(" ス ズ メ ");
+bd2.fly();
+// ス ズ メ が 飛 び ま し た
+....
+
