@@ -34,5 +34,7 @@ module.exports = {
     "prefer-const": "error",
     "prefer-spread": "error",
     "require-yield": "error",
+    "react/jsx-uses-vars": 1,
+    "react/jsx-uses-react": 1,
   },
 };
