@@ -58,10 +58,22 @@ bd2.fly();
 // ス ズ メ が 飛 び ま し た
 ....
 
-=== 5-2. JSX の文法(p.68-)
+=== 7-2. Propsをコンポーネントに受け渡す
 
+==== `semantic.min.css` import
+
+`semantic.min.css` を https://github.com/oukayuka/ReactBeginnersBook-2.0/blob/master/07-component/02-props/src/styles/semantic.min.css[自前で管理している](https://github.com/oukayuka/ReactBeginnersBook-2.0/blob/master/07-component/02-props/src/index.tsx#L7[import箇所]) が理由がわからない。
+
+オフィシャルが解説している使用法は:
+
+[quote, 'https://react.semantic-ui.com/usage[]']
 ____
-「関数のアタマで logoAttrs というオブジェクトが定義されて、 <img> タグ内にスプレッド演算子『 ... 』
-で展開されてますね」 +
-「こうすることで、オブジェクトに格納されたタグ属性値をまとめて渡すことができるの」
+....
+import 'semantic-ui-css/semantic.min.css'
+....
 ____
+
+==== `Icon` の属性 `name` が無い
+
+`Icon` に https://github.com/oukayuka/ReactBeginnersBook-2.0/blob/0828c2e6ea1d5f2292049855fe8e9bb29cb140fa/07-component/02-props/src/CharacterList.tsx#L27[`name` 属性]を指定しているが現在のバージョンでは https://react.semantic-ui.com/elements/icon/[存在しない]。 `className` のことと思われる。
+
