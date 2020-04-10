@@ -72,3 +72,12 @@ ____
 import 'semantic-ui-css/semantic.min.css'
 ....
 ____
+
+==== falsy
+
+____
+設定されてなければ参照値は undefined で false なので、
+____
+
+正確には `undefined` は `false` なのではなく https://developer.mozilla.org/ja/docs/Glossary/Falsy[`falsy`] 。
+

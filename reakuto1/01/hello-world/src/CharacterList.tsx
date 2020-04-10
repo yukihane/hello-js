@@ -21,10 +21,12 @@ const CharacterList = (props: CharacterListProps) => {
       <Header as="h2">{school}</Header>
       <Item.Group>
         {characters.map((c) => (
-          <Item>
+          <Item key={c.id}>
             <Icon name="user circle" size="huge" />
             <Item.Content>
               <Item.Header>{c.name}</Item.Header>
+              <Item.Meta>{c.age}歳</Item.Meta>
+              <Item.Meta>{c.height ? c.height : "???"} cm</Item.Meta>
             </Item.Content>
           </Item>
         ))}
