@@ -1,28 +1,35 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
+import CharacterList, { Character } from "./CharacterList";
+
 const App = () => {
-  const logoAttrs = {
-    alt: "logo",
-    className: "App-logo",
-    src: logo,
-  };
-  const title = " こ ん に ち は React";
-  const targets = ["World", "Kanae", "Yukina"];
+  const characters: Character[] = [
+    {
+      id: 1,
+      name: " 羽 咲 綾 乃 ",
+      age: 16,
+      height: 151,
+    },
+    {
+      id: 2,
+      name: " 荒 垣 な ぎ さ ",
+      age: 18,
+      height: 174,
+    },
+    {
+      id: 3,
+      name: " 泉 理 子 ",
+      age: 18,
+    },
+  ];
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {
-          // コ メ ン ト は こ う 書 く
-        }
-        <img {...logoAttrs} />
-        {title && <p>{title}</p>}
-        {targets.map((target) => (
-          <p>Hello, {target}!</p>
-        ))}
+    <div className="container">
+      <header>
+        <h1> は ね バ ド ! キ ャ ラ ク タ ー 一 覧 </h1>
       </header>
+      <CharacterList school=" 北 小 町 高 校 " characters={characters} />
     </div>
   );
 };
