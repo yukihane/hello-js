@@ -72,8 +72,3 @@ ____
 import 'semantic-ui-css/semantic.min.css'
 ....
 ____
-
-==== `Icon` の属性 `name` が無い
-
-`Icon` に https://github.com/oukayuka/ReactBeginnersBook-2.0/blob/0828c2e6ea1d5f2292049855fe8e9bb29cb140fa/07-component/02-props/src/CharacterList.tsx#L27[`name` 属性]を指定しているが現在のバージョンでは https://react.semantic-ui.com/elements/icon/[存在しない]。 `className` のことと思われる。
-
