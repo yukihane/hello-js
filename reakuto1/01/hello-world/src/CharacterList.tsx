@@ -22,7 +22,7 @@ const CharacterList = (props: CharacterListProps) => {
       <Item.Group>
         {characters.map((c) => (
           <Item>
-            <Icon className="user circle" size="huge" />
+            <Icon name="user circle" size="huge" />
             <Item.Content>
               <Item.Header>{c.name}</Item.Header>
             </Item.Content>
