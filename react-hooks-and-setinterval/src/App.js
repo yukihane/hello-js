@@ -7,8 +7,7 @@ const App = () => {
   const [delay, setDelay] = useState(1000);
   return (
     <>
-      <Counter delay={delay} />
-      <input value={delay} onChange={(e) => setDelay(e.target.value)}></input>
+      <Counter />
     </>
   );
 };

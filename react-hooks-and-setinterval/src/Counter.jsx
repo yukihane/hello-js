@@ -1,35 +1,41 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./App.css";
+import React from "react";
 
-const useInterval = (callback, delay) => {
-  const savedCallback = useRef();
+class Counter extends React.Component {
+  state = {
+    count: 0,
+    delay: 1000,
+  };
 
-  // Remember the latest callback.
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      savedCallback.current();
+  componentDidMount() {
+    this.interval = setInterval(this.tick, this.state.delay);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.delay !== this.state.delay) {
+      clearInterval(this.interval);
+      this.interval = setInterval(this.tick, this.state.delay);
     }
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
-  }, [delay]);
-};
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  tick = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
 
-const Counter = (props) => {
-  let [count, setCount] = useState(0);
+  handleDelayChange = (e) => {
+    this.setState({ delay: Number(e.target.value) });
+  };
 
-  useInterval(() => {
-    // Your custom logic here
-    setCount(count + 1);
-  }, props.delay);
-
-  return <h1>{count}</h1>;
-};
+  render() {
+    return (
+      <>
+        <h1>{this.state.count}</h1>
+        <input value={this.state.delay} onChange={this.handleDelayChange} />
+      </>
+    );
+  }
+}
 
 export default Counter;
