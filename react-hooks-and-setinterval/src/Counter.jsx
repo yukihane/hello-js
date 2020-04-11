@@ -1,41 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-class Counter extends React.Component {
-  state = {
-    count: 0,
-    delay: 1000,
-  };
+const Counter = () => {
+  const [count, setCount] = useState(0);
 
-  componentDidMount() {
-    this.interval = setInterval(this.tick, this.state.delay);
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.delay !== this.state.delay) {
-      clearInterval(this.interval);
-      this.interval = setInterval(this.tick, this.state.delay);
-    }
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-  tick = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(count + 1);
+    }, 1000);
 
-  handleDelayChange = (e) => {
-    this.setState({ delay: Number(e.target.value) });
-  };
+    return () => clearInterval(id);
+  }, [count]);
 
-  render() {
-    return (
-      <>
-        <h1>{this.state.count}</h1>
-        <input value={this.state.delay} onChange={this.handleDelayChange} />
-      </>
-    );
-  }
-}
+  return <h1>{count}</h1>;
+};
 
 export default Counter;
