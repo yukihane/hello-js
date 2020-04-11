@@ -81,3 +81,13 @@ ____
 
 正確には `undefined` は `false` なのではなく https://developer.mozilla.org/ja/docs/Glossary/Falsy[`falsy`] 。
 
+=== 7-4. コンポーネントのライフサイクル(p.93-)
+
+hooksで `componentDidMount` のみで実行するときは、 `useEffect` の第2引数に空の配列 `[]` を渡す。
+(通常は、 `componentDidMount` 相当と `componentDidUpdate` 相当)
+
+* https://ja.reactjs.org/docs/hooks-reference.html#timing-of-effects
+
+HooksとsetIntervalについて。はまりがちな問題がある。
+
+* https://overreacted.io/making-setinterval-declarative-with-react-hooks/
