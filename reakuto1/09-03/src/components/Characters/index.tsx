@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
-import { Redirect } from 'react-router-dom';
+import { RouteComponentProps, withRouter, Redirect } from 'react-router-dom';
+
 import { parse } from 'query-string';
 import Helmet from 'react-helmet';
 import { Button, Divider, Icon } from 'semantic-ui-react';
