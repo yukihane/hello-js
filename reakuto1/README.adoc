@@ -105,3 +105,9 @@ ____
 ____
 Update from 2019: I wrote this article a long time ago and my views have since evolved. In particular, I don’t suggest splitting your components like this anymore. If you find it natural in your codebase, this pattern can be handy.
 ____
+
+=== 9-3. React Router の使い方(p.128)
+
+*7 のリポジトリリンクが間違っている。
+正しくは
+https://github.com/oukayuka/ReactBeginnersBook-2.0/tree/master/09-routing/03-react-router
