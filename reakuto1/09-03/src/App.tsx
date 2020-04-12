@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 import Characters from './components/Characters';
