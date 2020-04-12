@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Container, List } from 'semantic-ui-react';
@@ -8,7 +8,7 @@ import './index.css';
 
 const codes = Object.keys(characterData);
 
-const Home: FC<{}> = () => (
+const Home = () => (
   <>
     <Helmet>
       <title>作品紹介 | はねバド！</title>
