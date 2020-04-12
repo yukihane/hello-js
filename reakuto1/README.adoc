@@ -91,3 +91,17 @@ hooksで `componentDidMount` のみで実行するときは、 `useEffect` の�
 HooksとsetIntervalについて。はまりがちな問題がある。
 
 * https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+
+=== 7-6. Presentational Component と Container Component(p.102-)
+
+____
+「Presentational Component はその名の通り、主に見た目を担うコンポーネントのことね。もう一方
+の Container Component は処理を担うコンポーネント。Facebook で Redux や Create React App を開
+発している Dan Abramov さんの記事 *5 を参考にすると、それぞれの特徴はこんな感じになる」 (以下略)
+____
+
+参照している記事 https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0[Presentational and Container Components] は2015年のものだが、次のように追記されている:
+
+____
+Update from 2019: I wrote this article a long time ago and my views have since evolved. In particular, I don’t suggest splitting your components like this anymore. If you find it natural in your codebase, this pattern can be handy.
+____
