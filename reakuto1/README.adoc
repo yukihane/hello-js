@@ -134,3 +134,5 @@ The recommended method of rendering something with a <Route> is to use children 
 * <Route render>
 * <Route children> function
 ____
+
+また、URLパラメータの受け取りは 公式では(props(`RouteComponentProps`)でなく) https://reacttraining.com/react-router/web/api/Hooks/useparams[`useParams`] を使用している。
