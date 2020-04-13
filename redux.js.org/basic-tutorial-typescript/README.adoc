@@ -1,0 +1,2 @@
+https://redux.js.org/basics/basic-tutorial
+のTypeScript版
