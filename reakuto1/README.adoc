@@ -108,6 +108,29 @@ ____
 
 === 9-3. React Router の使い方(p.128)
 
+==== GitHubリポジトリ誤り
+
 *7 のリポジトリリンクが間違っている。
 正しくは
 https://github.com/oukayuka/ReactBeginnersBook-2.0/tree/master/09-routing/03-react-router
+
+==== React Router の `<Route>`
+
+React Router の `Route` を
+
+ <Route path="/characters/:code" component={Characters} />
+
+のように使用しているが、公式では子エレメントとして書くことを推奨している。
+
+ <Route path="/characters/:code">
+   <Characters />
+ </Route>
+
+[quote, 'https://reacttraining.com/react-router/web/api/Route']
+____
+The recommended method of rendering something with a <Route> is to use children elements, as shown above. There are, however, a few other methods you can use to render something with a <Route>. These are provided mostly for supporting apps that were built with earlier versions of the router before hooks were introduced.
+
+* <Route component>
+* <Route render>
+* <Route children> function
+____
