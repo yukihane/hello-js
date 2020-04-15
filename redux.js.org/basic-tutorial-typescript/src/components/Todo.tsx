@@ -1,7 +1,7 @@
 import React from "react";
 
 interface TodoProps {
-  onClick: () => {};
+  onClick: () => void;
   completed: boolean;
   text: string;
 }

@@ -1,21 +1,13 @@
 import React from "react";
 import Todo from "./Todo";
+import { ReducedProps } from "../containers/VisibleTodoList";
 
-interface TodoState {
-  id: number;
-  completed: boolean;
-  text: string;
-}
+interface TodoListProps extends ReducedProps {}
 
-interface TodoListProps {
-  todos: TodoState[];
-  onTodoClick: (index: number) => {};
-}
-
-const TodoList = ({ todos, onTodoClick }: TodoListProps) => (
+const TodoList = ({ todos, toggleTodo }: TodoListProps) => (
   <ul>
     {todos.map((todo, index) => (
-      <Todo key={index} {...todo} onClick={() => onTodoClick(index)} />
+      <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
     ))}
   </ul>
 );
