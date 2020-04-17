@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Container, Label, SemanticCOLORS } from 'semantic-ui-react';
+import { ReducedProps } from '../types/ColorfulBeadsTypes';
 
 import './ColorfulBeads.css';
 
@@ -20,9 +21,7 @@ const colors: SemanticCOLORS[] = [
   'black',
 ];
 
-export interface ColorfulBeadsProps {
-  count?: number;
-}
+export type ColorfulBeadsProps = ReducedProps;
 
 const ColorfulBeads: FC<ColorfulBeadsProps> = ({ count = 0 }) => (
   <Container className="beads-box">

@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
 import { Button, Card, Statistic } from 'semantic-ui-react';
+import { ReducedProps } from '../types/CounterTypes';
 
 import './Counter.css';
 
-export interface CounterProps {
-  count?: number;
-  add?: (amount: number) => void;
-  decrement?: () => void;
-  increment?: () => void;
-}
+export type CounterProps = ReducedProps;
 
 const Counter: FC<CounterProps> = ({
   count = 0,

@@ -2,12 +2,9 @@ import { connect } from 'react-redux';
 
 import ColorfulBeads from '../components/ColorfulBeads';
 import { CounterState } from '../reducer';
+import { StateProps } from '../types/ColorfulBeadsTypes';
 
-interface StateProps {
-  count: number;
-}
-
-const mapStateToProps = (state: CounterState) => ({
+const mapStateToProps = (state: CounterState): StateProps => ({
   count: state.count,
 });
 
