@@ -9,5 +9,14 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "electron": "^8.2.3",
+    "ts-loader": "^7.0.0",
+    "tslint": "^6.1.1",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
