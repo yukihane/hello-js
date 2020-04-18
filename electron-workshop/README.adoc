@@ -15,3 +15,5 @@ https://qiita.com/EBIHARA_kenji/items/25e59f7132b96cb886f3
 というコマンドは次のようになった:
 
  yarn add -D electron typescript webpack webpack-cli ts-loader eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier
+
+`.eslintrc.js` は上のリンク先を参考に作成。
