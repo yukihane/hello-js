@@ -2,6 +2,17 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "main": "build/electron/main.js",
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -18,6 +29,9 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "electron:build": "yarn build && tsc -p electron && electron-builder",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
