@@ -8,6 +8,7 @@
     "start": "electron ./"
   },
   "dependencies": {
+    "clone": "^2.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -16,6 +17,7 @@
     "uuid": "^7.0.3"
   },
   "devDependencies": {
+    "@types/clone": "^0.1.30",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "@types/react-redux": "^7.1.7",
