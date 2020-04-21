@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Moment from "moment";
 import Styled from "styled-components";
 import { $COLOR_SECONDARY_1_3 } from "../FoundationStyles";
 import ReactDatePicker from "react-datepicker";
+import { createTask, UserInput } from "../types";
+import { ReducedProps } from "./AddTaskContainer";
 
 const Container = Styled.div`
     align-items: center;
@@ -35,12 +37,18 @@ const AddButton = Styled.button`
     width: 40px;
 `;
 
-interface AddTaskComponentProps {
-  deadline: Date;
-  taskName: string;
-}
+interface AddTaskComponentProps extends ReducedProps {}
+
 const AddTaskComponent = (props: AddTaskComponentProps) => {
-  const date = props.deadline;
+  const [input, setInput] = useState<UserInput>({
+    taskName: "",
+    deadline: new Date(),
+  });
+
+  const addTask = () => {
+    props.addTask(createTask(input.taskName, input.deadline));
+  };
+
   const taskNameId = "taskNameId";
   const deadlineId = "deadlineId";
   return (
@@ -50,24 +58,25 @@ const AddTaskComponent = (props: AddTaskComponentProps) => {
         <TextBox
           id={taskNameId}
           type="text"
-          value={props.taskName}
-          onChange={() => {
-            /*ここは後で*/
+          value={input.taskName}
+          onChange={(e) => {
+            setInput({ ...input, taskName: e.target.value });
           }}
         />
       </TaskNameBox>
       <DeadlineBox>
         <label htmlFor={deadlineId}>dead line</label>
         <ReactDatePicker
-          selected={date}
+          selected={input.deadline}
           showTimeSelect={true}
           dateFormat="yyyy-MM-dd HH:MM"
-          onChange={() => {
-            /*ここは後で*/
+          onChange={(e) => {
+            const deadline = !!e ? e : new Date();
+            return { ...input, deadline };
           }}
         />
       </DeadlineBox>
-      <AddButton onClick={() => {}}>+</AddButton>
+      <AddButton onClick={(e) => addTask()}>+</AddButton>
     </Container>
   );
 };

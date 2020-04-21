@@ -19,6 +19,11 @@ export const initTaskState: TaskState = {
   tasks: [],
 };
 
+export interface UserInput {
+  taskName: string;
+  deadline: Date;
+}
+
 export const createTask = (taskName: string, deadline: Date): TaskItem => ({
   complete: false,
   deadline,

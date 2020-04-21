@@ -6,7 +6,7 @@ import {
   $COLOR_FOREGROUND_REVERSE,
 } from "./FoundationStyles";
 import TaskList from "./taskList/TaskListContainer";
-import AddTask from "./addTask/AddTaskComponent";
+import AddTask from "./addTask/AddTaskContainer";
 import * as AppContainer from "./AppContainer";
 import { TaskItem } from "./types";
 
@@ -61,7 +61,7 @@ const AppComponent = (props: AppComponentProps) => {
     <>
       <Header>TODO</Header>
       <MainContainer>
-        <AddTask deadline={new Date()} taskName={"ダミー"} key="1" />
+        <AddTask />
         <TaskList />
       </MainContainer>
     </>
