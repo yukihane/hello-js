@@ -64,7 +64,6 @@ const AppComponent = (props: AppComponentProps) => {
   });
 
   const { tasks } = props;
-  console.log("tasks: " + Array.isArray(tasks));
   const taskListElems = tasks
     .sort((a, b) => {
       return a.deadline < b.deadline

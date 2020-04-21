@@ -19,7 +19,7 @@ const task: Reducer<TaskState, TaskAction> = (
       newState.tasks.push(newTask);
       return newState;
     case ActionType.SHOW_TASKS:
-      newState.tasks = { ...action.tasks };
+      newState.tasks = [...action.tasks];
       return newState;
     case ActionType.TOGGLE_COMPLETE_TASK:
       const targetTask = newState.tasks.find((t) => t.id === action.taskId);
