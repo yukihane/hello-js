@@ -6,7 +6,7 @@ import {
 } from "./FoundationStyles";
 import AddTask from "./addTask/AddTaskComponent";
 import * as AppContainer from "./AppContainer";
-import TaskRow from "./taskList/TaskRow";
+import TaskRow from "./taskList/TaskRowComponent";
 
 const MainContainer = Styled.div`
     margin: 10px auto 0 auto;
