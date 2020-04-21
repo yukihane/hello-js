@@ -5,9 +5,9 @@ import {
   $COLOR_PRIMARY_3,
   $COLOR_FOREGROUND_REVERSE,
 } from "./FoundationStyles";
+import TaskList from "./taskList/TaskListComponent";
 import AddTask from "./addTask/AddTaskComponent";
 import * as AppContainer from "./AppContainer";
-import TaskRow from "./taskList/TaskrowContainer";
 import { TaskItem } from "./types";
 
 const MainContainer = Styled.div`
@@ -23,12 +23,6 @@ const Header = Styled.h1`
     font-size: 160%;
     padding: 1em;
     text-align: center;
-`;
-
-const TaskList = Styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
 `;
 
 interface AppComponentProps extends AppContainer.ReducedProps {}
@@ -63,25 +57,12 @@ const AppComponent = (props: AppComponentProps) => {
     props.showTasks(dummyTasks);
   });
 
-  const { tasks } = props;
-  const taskListElems = tasks
-    .sort((a, b) => {
-      return a.deadline < b.deadline
-        ? -1
-        : a.deadline.getTime() === b.deadline.getTime()
-        ? 0
-        : 1;
-    })
-    .map((it) => {
-      return <TaskRow key={it.id} {...it} />;
-    });
-
   return (
     <>
       <Header>TODO</Header>
       <MainContainer>
         <AddTask deadline={new Date()} taskName={"ダミー"} key="1" />
-        <TaskList>{taskListElems}</TaskList>
+        <TaskList />
       </MainContainer>
     </>
   );
