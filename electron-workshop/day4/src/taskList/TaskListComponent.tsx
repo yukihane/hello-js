@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
-import { TaskItem } from "../types";
 import TaskRow from "./TaskrowContainer";
+import { ReducedProps } from "./TaskListContainer";
 
 const TaskList = Styled.div`
     display: flex;
@@ -9,9 +9,7 @@ const TaskList = Styled.div`
     margin-top: 1em;
 `;
 
-interface TaskListComponentProps {
-  tasks: TaskItem[];
-}
+interface TaskListComponentProps extends ReducedProps {}
 
 const TaskListComponent = (props: TaskListComponentProps) => {
   const { tasks } = props;

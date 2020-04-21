@@ -5,7 +5,7 @@ import {
   $COLOR_PRIMARY_3,
   $COLOR_FOREGROUND_REVERSE,
 } from "./FoundationStyles";
-import TaskList from "./taskList/TaskListComponent";
+import TaskList from "./taskList/TaskListContainer";
 import AddTask from "./addTask/AddTaskComponent";
 import * as AppContainer from "./AppContainer";
 import { TaskItem } from "./types";
