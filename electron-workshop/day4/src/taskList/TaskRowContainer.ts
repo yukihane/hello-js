@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
 });
 
 export interface ReducedProps extends DispatchProps {}
-export default connect(mapDispatchToProps)(TaskRowComponent);
+export default connect(null, mapDispatchToProps)(TaskRowComponent);
