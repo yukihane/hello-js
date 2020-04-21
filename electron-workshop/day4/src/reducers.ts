@@ -26,6 +26,7 @@ const task: Reducer<TaskState, TaskAction> = (
       if (!targetTask) {
         return state || initTaskState;
       }
+      newState.tasks = [...newState.tasks];
       targetTask.complete = !targetTask.complete;
       return newState;
     case ActionType.DELETE_TASK:
