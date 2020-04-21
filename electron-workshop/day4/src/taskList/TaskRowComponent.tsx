@@ -6,7 +6,7 @@ import {
   $COLOR_SECONDARY_1_3,
   $COLOR_SECONDARY_2_0,
 } from "../FoundationStyles";
-import { ReducedProps } from "./TaskrowContainer";
+import { ReducedProps } from "./TaskRowContainer";
 
 const Task = Styled.div<{ expiration: boolean }>`
 align-items: center;
