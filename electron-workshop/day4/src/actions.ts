@@ -12,10 +12,12 @@ export interface ShowTasksAction extends Action<typeof ActionType.SHOW_TASKS> {
   tasks: TaskItem[];
 }
 
-export const showTasks = (tasks: TaskItem[]): ShowTasksAction => ({
-  type: ActionType.SHOW_TASKS,
-  tasks,
-});
+export const showTasks = (tasks: TaskItem[]): ShowTasksAction => {
+  return {
+    type: ActionType.SHOW_TASKS,
+    tasks,
+  };
+};
 
 export interface AddTaskAction extends Action<typeof ActionType.ADD_TASK> {
   deadline: Date;

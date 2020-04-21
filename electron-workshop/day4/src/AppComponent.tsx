@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Styled from "styled-components";
+import Moment from "moment";
 import {
   $COLOR_PRIMARY_3,
   $COLOR_FOREGROUND_REVERSE,
 } from "./FoundationStyles";
 import AddTask from "./addTask/AddTaskComponent";
 import * as AppContainer from "./AppContainer";
-import TaskRow from "./taskList/TaskRowComponent";
+import TaskRow from "./taskList/TaskrowContainer";
+import { TaskItem } from "./types";
 
 const MainContainer = Styled.div`
     margin: 10px auto 0 auto;
@@ -31,7 +33,38 @@ const TaskList = Styled.div`
 
 interface AppComponentProps extends AppContainer.ReducedProps {}
 const AppComponent = (props: AppComponentProps) => {
+  useEffect(() => {
+    const dummyTasks: TaskItem[] = [
+      {
+        complete: false,
+        deadline: Moment().add(1, "day").toDate(),
+        id: "0",
+        taskName: "task01",
+      },
+      {
+        complete: true,
+        deadline: Moment().add(1, "day").toDate(),
+        id: "1",
+        taskName: "task02",
+      },
+      {
+        complete: false,
+        deadline: Moment().add(-1, "day").toDate(),
+        id: "2",
+        taskName: "task03",
+      },
+      {
+        complete: true,
+        deadline: Moment().add(-1, "day").toDate(),
+        id: "3",
+        taskName: "task04",
+      },
+    ];
+    props.showTasks(dummyTasks);
+  });
+
   const { tasks } = props;
+  console.log("tasks: " + Array.isArray(tasks));
   const taskListElems = tasks
     .sort((a, b) => {
       return a.deadline < b.deadline
@@ -41,15 +74,9 @@ const AppComponent = (props: AppComponentProps) => {
         : 1;
     })
     .map((it) => {
-      return (
-        <TaskRow
-          key={it.id}
-          removeTask={props.removeTask}
-          toggleCompleted={props.toggleCompleted}
-          {...it}
-        />
-      );
+      return <TaskRow key={it.id} {...it} />;
     });
+
   return (
     <>
       <Header>TODO</Header>

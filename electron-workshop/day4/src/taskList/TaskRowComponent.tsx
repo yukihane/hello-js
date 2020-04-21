@@ -6,6 +6,7 @@ import {
   $COLOR_SECONDARY_1_3,
   $COLOR_SECONDARY_2_0,
 } from "../FoundationStyles";
+import { ReducedProps } from "./TaskrowContainer";
 
 const Task = Styled.div<{ expiration: boolean }>`
 align-items: center;
@@ -64,12 +65,9 @@ const TaskName = Styled.div`
 const Deadline = Styled.div`
 `;
 
-interface TaskRowProps extends TaskItem {
-  toggleCompleted: (id: string) => void;
-  removeTask: (id: string) => void;
-}
+interface TaskRowComponentProps extends TaskItem, ReducedProps {}
 
-const TaskRow = (props: TaskRowProps) => {
+const TaskRowComponent = (props: TaskRowComponentProps) => {
   const it: TaskItem = props;
   const deadlineString = Moment(it.deadline).format("YYYY-MM-DD hh:mm");
 
@@ -90,4 +88,4 @@ const TaskRow = (props: TaskRowProps) => {
   );
 };
 
-export default TaskRow;
+export default TaskRowComponent;
