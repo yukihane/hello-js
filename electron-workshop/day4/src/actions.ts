@@ -1,5 +1,6 @@
-import { Action } from "redux";
+import { Action, Dispatch } from "redux";
 import { TaskItem } from "./types";
+import { loadTask } from "./utils/taskFileIF";
 
 export enum TaskActionType {
   SHOW_TASKS,
@@ -57,6 +58,17 @@ export const TOGGLE_SHOW_SPINNER = "TOGGLE_SHOW_SPINNER";
 export interface ToggleShowSpinnerAction
   extends Action<typeof TOGGLE_SHOW_SPINNER> {}
 
-export const toggleShowSpinner = (): ToggleShowSpinnerAction => ({
-  type: TOGGLE_SHOW_SPINNER,
-});
+export const createLoadTaskAction = (
+  dispatch: Dispatch
+): ToggleShowSpinnerAction => {
+  let tasks: TaskItem[] = [];
+
+  loadTask().then((jsonData) => {
+    tasks = jsonData.data as TaskItem[];
+    dispatch(showTasks(tasks));
+
+    dispatch<ToggleShowSpinnerAction>({ type: TOGGLE_SHOW_SPINNER });
+  });
+
+  return { type: TOGGLE_SHOW_SPINNER };
+};
