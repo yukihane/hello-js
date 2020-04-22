@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
-import { TaskItem } from "./types";
 import AppComponent from "./AppComponent";
 import { Dispatch } from "redux";
-import { showTasks } from "./actions";
+import { startTasksLoading } from "./actions";
 
 interface DispatchProps {
-  showTasks: (tasks: TaskItem[]) => void;
+  loadTasks: () => void;
 }
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  showTasks: (tasks: TaskItem[]) => dispatch(showTasks(tasks)),
+  loadTasks: () => dispatch(startTasksLoading(dispatch)),
 });
 
 export interface ReducedProps extends DispatchProps {}

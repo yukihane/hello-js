@@ -29,7 +29,7 @@ const task: Reducer<TaskState, TaskAction> = (
       const newTask = createTask(action.taskName, action.deadline);
       newState.tasks.push(newTask);
       return newState;
-    case TaskActionType.SHOW_TASKS:
+    case TaskActionType.FINISH_TASKS_LOADING:
       newState.tasks = [...action.tasks];
       return newState;
     case TaskActionType.TOGGLE_COMPLETE_TASK:

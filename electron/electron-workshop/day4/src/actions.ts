@@ -3,20 +3,22 @@ import { TaskItem } from "./types";
 import { loadTask } from "./utils/taskFileIF";
 
 export enum TaskActionType {
-  SHOW_TASKS,
+  FINISH_TASKS_LOADING,
   ADD_TASK,
   TOGGLE_COMPLETE_TASK,
   DELETE_TASK,
 }
 
-export interface ShowTasksAction
-  extends Action<typeof TaskActionType.SHOW_TASKS> {
+export interface FinishTasksLoadingAction
+  extends Action<typeof TaskActionType.FINISH_TASKS_LOADING> {
   tasks: TaskItem[];
 }
 
-export const showTasks = (tasks: TaskItem[]): ShowTasksAction => {
+export const finishTasksLoading = (
+  tasks: TaskItem[]
+): FinishTasksLoadingAction => {
   return {
-    type: TaskActionType.SHOW_TASKS,
+    type: TaskActionType.FINISH_TASKS_LOADING,
     tasks,
   };
 };
@@ -50,7 +52,10 @@ export const deleteTask = (taskId: string): EditTaskAction => ({
   taskId,
 });
 
-export type TaskAction = ShowTasksAction | AddTaskAction | EditTaskAction;
+export type TaskAction =
+  | FinishTasksLoadingAction
+  | AddTaskAction
+  | EditTaskAction;
 
 /** タスクロード開始のアクションタイプ */
 export const TOGGLE_SHOW_SPINNER = "TOGGLE_SHOW_SPINNER";
@@ -58,14 +63,14 @@ export const TOGGLE_SHOW_SPINNER = "TOGGLE_SHOW_SPINNER";
 export interface ToggleShowSpinnerAction
   extends Action<typeof TOGGLE_SHOW_SPINNER> {}
 
-export const createLoadTaskAction = (
+export const startTasksLoading = (
   dispatch: Dispatch
 ): ToggleShowSpinnerAction => {
   let tasks: TaskItem[] = [];
 
   loadTask().then((jsonData) => {
     tasks = jsonData.data as TaskItem[];
-    dispatch(showTasks(tasks));
+    dispatch(finishTasksLoading(tasks));
 
     dispatch<ToggleShowSpinnerAction>({ type: TOGGLE_SHOW_SPINNER });
   });

@@ -29,33 +29,7 @@ const Header = Styled.h1`
 interface AppComponentProps extends AppContainer.ReducedProps {}
 const AppComponent = (props: AppComponentProps) => {
   useEffect(() => {
-    const dummyTasks: TaskItem[] = [
-      {
-        complete: false,
-        deadline: Moment().add(1, "day").toDate(),
-        id: "0",
-        taskName: "task01",
-      },
-      {
-        complete: true,
-        deadline: Moment().add(1, "day").toDate(),
-        id: "1",
-        taskName: "task02",
-      },
-      {
-        complete: false,
-        deadline: Moment().add(-1, "day").toDate(),
-        id: "2",
-        taskName: "task03",
-      },
-      {
-        complete: true,
-        deadline: Moment().add(-1, "day").toDate(),
-        id: "3",
-        taskName: "task04",
-      },
-    ];
-    props.showTasks(dummyTasks);
+    props.loadTasks();
   });
 
   return (
