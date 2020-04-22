@@ -8,8 +8,5 @@
   },
   "devDependencies": {
     "electron": "^8.2.3"
-  },
-  "dependencies": {
-    "glob": "^7.1.6"
   }
 }
