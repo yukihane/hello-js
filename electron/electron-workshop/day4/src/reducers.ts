@@ -48,7 +48,7 @@ const task: Reducer<TaskState, TaskAction> = (
       newState.tasks = newState.tasks.filter((it) => it.id !== action.taskId);
       return newState;
     default:
-      return initTaskState;
+      return state || initTaskState;
   }
 };
 
@@ -60,7 +60,7 @@ export const toggleSpinner: Reducer<SpinnerState, ToggleShowSpinnerAction> = (
     case TOGGLE_SHOW_SPINNER:
       return { ...state, shownLoading: !state?.shownLoading };
     default:
-      return initSpinnerState;
+      return state || initSpinnerState;
   }
 };
 
