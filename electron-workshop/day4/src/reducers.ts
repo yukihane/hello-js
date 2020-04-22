@@ -1,6 +1,6 @@
 import { combineReducers, Reducer } from "redux";
 import { TaskState, createTask, initTaskState } from "./types";
-import { ActionType, TaskAction } from "./actions";
+import { TaskActionType, TaskAction } from "./actions";
 
 const task: Reducer<TaskState, TaskAction> = (
   state: TaskState | undefined,
@@ -14,14 +14,14 @@ const task: Reducer<TaskState, TaskAction> = (
   }
 
   switch (action.type) {
-    case ActionType.ADD_TASK:
+    case TaskActionType.ADD_TASK:
       const newTask = createTask(action.taskName, action.deadline);
       newState.tasks.push(newTask);
       return newState;
-    case ActionType.SHOW_TASKS:
+    case TaskActionType.SHOW_TASKS:
       newState.tasks = [...action.tasks];
       return newState;
-    case ActionType.TOGGLE_COMPLETE_TASK:
+    case TaskActionType.TOGGLE_COMPLETE_TASK:
       const targetTask = newState.tasks.find((t) => t.id === action.taskId);
       if (!targetTask) {
         return state || initTaskState;
@@ -29,7 +29,7 @@ const task: Reducer<TaskState, TaskAction> = (
       newState.tasks = [...newState.tasks];
       targetTask.complete = !targetTask.complete;
       return newState;
-    case ActionType.DELETE_TASK:
+    case TaskActionType.DELETE_TASK:
       const deleteTarget = newState.tasks.find((t) => t.id === action.taskId);
       if (!deleteTarget) {
         return state || initTaskState;
