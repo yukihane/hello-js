@@ -40,7 +40,7 @@ function readFile(path) {
       alert("file open error.");
       return;
     }
-    preview.textContent = data.toString();
+    preview.value = data.toString();
   });
 }
 
@@ -59,7 +59,7 @@ function saveFile() {
     })
     .then(({ filePath: fileName }) => {
       if (fileName) {
-        const data = preview.textContent;
+        const data = preview.value;
         console.log(data);
         writeFile(fileName, data);
       }
