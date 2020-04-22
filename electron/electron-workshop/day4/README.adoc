@@ -1,6 +1,8 @@
 https://qiita.com/EBIHARA_kenji/items/80adee2214d439209f98
-の写経。
+の写経。7日目の途中まで作成。ファイル出力は実装していない。また、react-data-pickerの取り扱いや細かい仕様についての細かいところは見ていない。
 
-ただし、ベースは
-https://qiita.com/yhirose/items/22b0621f0d36d983d8b0
-を参照して作成。
+いくつかの点で元コードとは異なる:
+
+* ベースとなるプロジェクト雛形は https://qiita.com/yhirose/items/22b0621f0d36d983d8b0[create-react-appとelectron-builderでTypeScriptとHot Reloadに完全対応したElectronアプリ開発環境を作成する - Qiita] を参照して作成している。
+* https://redux.js.org/basics/example[ReduxオフィシャルサイトのBasic Tutorial]に従ったReduxの利用方法を心がけた。ただしディレクトリ階層やファイル数は少なくなるようにしている。
+* Action名やコンポート名が適切でないと感じた部分については、リネームしている。
