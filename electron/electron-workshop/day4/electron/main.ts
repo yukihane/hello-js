@@ -5,7 +5,11 @@ import * as isDev from "electron-is-dev";
 let win: BrowserWindow | null = null;
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: { nodeIntegration: true },
+  });
 
   if (isDev) {
     win.loadURL("http://localhost:3000/index.html");
