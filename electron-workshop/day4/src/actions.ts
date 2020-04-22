@@ -50,3 +50,13 @@ export const deleteTask = (taskId: string): EditTaskAction => ({
 });
 
 export type TaskAction = ShowTasksAction | AddTaskAction | EditTaskAction;
+
+/** タスクロード開始のアクションタイプ */
+export const TOGGLE_SHOW_SPINNER = "TOGGLE_SHOW_SPINNER";
+
+export interface ToggleShowSpinnerAction
+  extends Action<typeof TOGGLE_SHOW_SPINNER> {}
+
+export const toggleShowSpinner = (): ToggleShowSpinnerAction => ({
+  type: TOGGLE_SHOW_SPINNER,
+});

@@ -1,6 +1,17 @@
 import { combineReducers, Reducer } from "redux";
-import { TaskState, createTask, initTaskState } from "./types";
-import { TaskActionType, TaskAction } from "./actions";
+import {
+  TaskState,
+  createTask,
+  initTaskState,
+  SpinnerState,
+  initSpinnerState,
+} from "./types";
+import {
+  TaskActionType,
+  TaskAction,
+  ToggleShowSpinnerAction,
+  TOGGLE_SHOW_SPINNER,
+} from "./actions";
 
 const task: Reducer<TaskState, TaskAction> = (
   state: TaskState | undefined,
@@ -41,8 +52,21 @@ const task: Reducer<TaskState, TaskAction> = (
   }
 };
 
+export const toggleSpinner: Reducer<SpinnerState, ToggleShowSpinnerAction> = (
+  state: SpinnerState | undefined,
+  action
+) => {
+  switch (action.type) {
+    case TOGGLE_SHOW_SPINNER:
+      return { ...state, shownLoading: !state?.shownLoading };
+    default:
+      return initSpinnerState;
+  }
+};
+
 const rootReducer = combineReducers({
   task,
+  toggleSpinner,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

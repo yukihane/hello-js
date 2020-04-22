@@ -19,6 +19,12 @@ export const initTaskState: TaskState = {
   tasks: [],
 };
 
+export interface SpinnerState {
+  shownLoading: boolean;
+}
+
+export const initSpinnerState = { shownLoading: false };
+
 export interface UserInput {
   taskName: string;
   deadline: Date;

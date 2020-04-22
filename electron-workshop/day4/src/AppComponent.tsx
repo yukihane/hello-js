@@ -9,6 +9,7 @@ import TaskList from "./taskList/TaskListContainer";
 import AddTask from "./addTask/AddTaskContainer";
 import * as AppContainer from "./AppContainer";
 import { TaskItem } from "./types";
+import Loading from "./loading/LoadingContainer";
 
 const MainContainer = Styled.div`
     margin: 10px auto 0 auto;
@@ -64,6 +65,7 @@ const AppComponent = (props: AppComponentProps) => {
         <AddTask />
         <TaskList />
       </MainContainer>
+      <Loading />
     </>
   );
 };
