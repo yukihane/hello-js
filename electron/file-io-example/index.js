@@ -15,9 +15,8 @@ const preview = document.getElementById("preview");
 //openFileボタンが押されたとき（ファイル名取得まで）
 function openFile() {
   const win = BrowserWindow.getFocusedWindow();
-  dialog.showOpenDialog(
-    win,
-    {
+  dialog
+    .showOpenDialog(win, {
       properties: ["openFile"],
       filters: [
         {
@@ -25,14 +24,13 @@ function openFile() {
           extensions: ["csv", "txt"],
         },
       ],
-    },
-    (fileNames) => {
+    })
+    .then(({ filePaths: fileNames }) => {
       if (fileNames) {
         // alert(fileNames[0]);
         readFile(fileNames[0]); //複数選択の可能性もあるので配列となる。
       }
-    }
-  );
+    });
 }
 
 //指定したファイルを読み込む
@@ -49,9 +47,8 @@ function readFile(path) {
 //saveFileボタンが押されたとき
 function saveFile() {
   const win = BrowserWindow.getFocusedWindow();
-  dialog.showSaveDialog(
-    win,
-    {
+  dialog
+    .showSaveDialog(win, {
       properties: ["openFile"],
       filters: [
         {
@@ -59,15 +56,14 @@ function saveFile() {
           extensions: ["csv", "txt"],
         },
       ],
-    },
-    (fileName) => {
+    })
+    .then(({ filePath: fileName }) => {
       if (fileName) {
         const data = preview.textContent;
         console.log(data);
         writeFile(fileName, data);
       }
-    }
-  );
+    });
 }
 
 //fileを保存（Pathと内容を指定）
