@@ -27,6 +27,7 @@ const task: Reducer<TaskState, TaskAction> = (
   switch (action.type) {
     case TaskActionType.ADD_TASK:
       const newTask = createTask(action.taskName, action.deadline);
+      newState.tasks = newState.tasks.slice();
       newState.tasks.push(newTask);
       return newState;
     case TaskActionType.FINISH_TASKS_LOADING:
