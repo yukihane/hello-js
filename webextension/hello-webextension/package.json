@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "GPLv3",
+  "scripts": {
+    "build": "webpack"
+  },
   "devDependencies": {
     "ts-loader": "^7.0.2",
     "typescript": "^3.8.3",
