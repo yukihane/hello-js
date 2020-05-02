@@ -2,5 +2,9 @@
   "name": "hello-webextension",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
