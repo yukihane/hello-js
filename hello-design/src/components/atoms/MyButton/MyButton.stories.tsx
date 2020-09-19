@@ -1,6 +1,6 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { MyButton, Props } from "./index";
+import { MyButton, Props } from "./MyButton";
 
 export default {
   title: "MyButton",
