@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import styles from "./MyButton.module.scss";
 
-export type Props = { label: string };
+export type Props = { label: string; disabled: boolean };
 
-export const MyButton: FC<Props> = ({ label }) => {
+export const MyButton: FC<Props> = ({ label, disabled }) => {
+  const style = disabled ? styles.MyButton_disabled : styles.MyButton;
   return (
-    <button type="button" className={styles.MyButton}>
+    <button type="button" className={style} disabled={disabled}>
       {label}
     </button>
   );
