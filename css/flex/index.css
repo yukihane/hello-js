@@ -1,0 +1,28 @@
+html {
+  height: 100%;
+  background-color: blue;
+}
+
+body {
+  height: 100%;
+  background-color: yellow;
+  margin: 0;
+}
+
+#container {
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex-grow: 2;
+  background-color: aqua;
+}
+
+#footer {
+  position: sticky;
+  bottom: 0px;
+  background-color: red;
+}
