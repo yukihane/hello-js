@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+enum GenderEnum {
+  female = "female",
+  male = "male",
+  other = "other",
 }
 
-export default App;
+interface IFormInput {
+  firstName: String;
+  gender: GenderEnum;
+}
+
+export default function App() {
+  const { register, handleSubmit } = useForm<IFormInput>();
+
+  const onSubmit = (data: IFormInput) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>First Name</label>
+      <input name="firstName" ref={register} />
+      <label>Gender Selection</label>
+      <select name="gender" ref={register}>
+        <option value="female">female</option>
+        <option value="male">male</option>
+        <option value="other">other</option>
+      </select>
+      <input type="submit" />
+    </form>
+  );
+}
