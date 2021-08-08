@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
-
-const Star = ({ selected = false }) => (
-  <FaStar color={selected ? "red" : "grey"} />
-);
+import { Star } from "./Start";
 
 export const StarRating = ({ totalStarts = 5 }) => {
-  const [selectedStars] = useState(3);
+  const [selectedStars, setSelectedStars] = useState(3);
   return (
     <>
       {[...Array(totalStarts)].map((_, i) => (
-        <Star key={i} selected={selectedStars > i} />
+        <Star
+          key={i}
+          selected={selectedStars > i}
+          onSelect={() => setSelectedStars(i + 1)}
+        />
       ))}
       <p>
         {selectedStars} of {totalStarts} stars
