@@ -3,11 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { StarRating } from "./StarRating";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StarRating />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
