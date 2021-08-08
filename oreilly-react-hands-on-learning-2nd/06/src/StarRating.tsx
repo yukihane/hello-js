@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Star } from "./Start";
 
-export const StarRating = ({ style = {}, totalStarts = 5, ...props }) => {
-  const [selectedStars, setSelectedStars] = useState(3);
+export const StarRating = ({
+  style = {},
+  totalStarts = 5,
+  selectedStars = 0,
+}) => {
   return (
-    <div style={{ padding: "5px", ...style }} {...props}>
+    <div style={{ padding: "5px", ...style }}>
       {[...Array(totalStarts)].map((_, i) => (
-        <Star
-          key={i}
-          selected={selectedStars > i}
-          onSelect={() => setSelectedStars(i + 1)}
-        />
+        <Star key={i} selected={selectedStars > i} />
       ))}
       <p>
         {selectedStars} of {totalStarts} stars
