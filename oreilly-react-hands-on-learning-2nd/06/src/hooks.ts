@@ -1,7 +1,15 @@
 import { ChangeEvent } from "react";
 import { useState } from "react";
 
-export const useInput = (initialValue: string) => {
+type RetVal = [
+  {
+    value: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  },
+  () => void
+];
+
+export const useInput = (initialValue: string): RetVal => {
   const [value, setValue] = useState(initialValue);
   return [
     {
