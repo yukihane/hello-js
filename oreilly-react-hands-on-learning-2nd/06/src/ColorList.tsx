@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { ColorContext } from "./";
 import { Color } from "./Color";
-import { ColorDataType } from "./App";
 
-export const ColorList = ({ colors = [] }: { colors: ColorDataType[] }) => {
+export const ColorList = () => {
+  const { colors } = useContext(ColorContext);
+
   if (!colors.length) {
     return <div>No Colors Listed.</div>;
   }
