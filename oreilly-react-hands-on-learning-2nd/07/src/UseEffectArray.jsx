@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const useAnyKeyToRender = () => {
+export const useAnyKeyToRender = () => {
   const [, forceRender] = useState();
 
   useEffect(() => {

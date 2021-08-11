@@ -6,11 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { Checkbox } from "./Checkbox";
 import { MyApp } from "./MyApp";
 import { UseEffectArray } from "./UseEffectArray";
+import { WordCount } from "./WordCount";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyApp />
-    <UseEffectArray />
+    <WordCount>You are not going to believe this but...</WordCount>
   </React.StrictMode>,
   document.getElementById("root")
 );
