@@ -1,10 +1,13 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { useAnyKeyToRender } from "./UseEffectArray";
 
 export const WordCount = ({ children = "" }) => {
   useAnyKeyToRender();
 
-  const words = children.split(" ");
+  const words = useMemo(() => {
+    const words = children.split(" ");
+    return words;
+  }, [children]);
 
   useEffect(() => {
     console.log("fresh render");
