@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 const firstUser = {
   id: "0391-3233-3201",
@@ -10,8 +10,14 @@ const firstUser = {
   admin: false,
 };
 
+type UserType = typeof firstUser;
+type DetailsType = Partial<UserType>;
+
 export const User = () => {
-  const [user, setUser] = useState(firstUser);
+  const [user, setUser] = useReducer(
+    (user: UserType, newDetails: DetailsType) => ({ ...user, ...newDetails }),
+    firstUser
+  );
 
   return (
     <div>
@@ -22,7 +28,7 @@ export const User = () => {
       <p>
         Location: {user.city}, {user.state}
       </p>
-      <button>Make Admin</button>
+      <button onClick={() => setUser({ admin: true })}>Make Admin</button>
     </div>
   );
 };
