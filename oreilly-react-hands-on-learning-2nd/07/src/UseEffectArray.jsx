@@ -9,9 +9,11 @@ const useAnyKeyToRender = () => {
   }, []);
 };
 
+const words = ["xxx", "yyy"];
+
 export function UseEffectArray() {
   useAnyKeyToRender();
-  const words = ["xxx", "yyy"];
+
   useEffect(() => {
     console.log("fresh render");
   }, [words]);
