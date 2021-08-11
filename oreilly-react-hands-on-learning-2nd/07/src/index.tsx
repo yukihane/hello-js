@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Checkbox } from "./Checkbox";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { User } from "./User";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Checkbox />
+    <User />
   </React.StrictMode>,
   document.getElementById("root")
 );
