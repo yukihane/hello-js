@@ -1,16 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import { Checkbox } from "./Checkbox";
-import { MyApp } from "./MyApp";
-import { UseEffectArray } from "./UseEffectArray";
-import { WordCount } from "./WordCount";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <WordCount>You are not going to believe this but...</WordCount>
+    <Checkbox />
   </React.StrictMode>,
   document.getElementById("root")
 );
