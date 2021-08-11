@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Checkbox } from "./Checkbox";
+import { MyApp } from "./MyApp";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Checkbox />
+    <MyApp />
   </React.StrictMode>,
   document.getElementById("root")
 );
