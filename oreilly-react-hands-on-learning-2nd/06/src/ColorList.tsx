@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { ColorContext } from "./";
 import { Color } from "./Color";
+import { useColors } from "./ColorProvider";
 
 export const ColorList = () => {
-  const { colors } = useContext(ColorContext);
+  const { colors } = useColors();
 
   if (!colors.length) {
     return <div>No Colors Listed.</div>;
