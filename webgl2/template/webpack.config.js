@@ -43,6 +43,7 @@ module.exports = () => {
     config.mode = "production";
   } else {
     config.mode = "development";
+    config.devtool = "inline-source-map";
   }
   return config;
 };
