@@ -5,10 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Checkbox } from "./Checkbox";
 import { MyApp } from "./MyApp";
+import { UseEffectArray } from "./UseEffectArray";
 
 ReactDOM.render(
   <React.StrictMode>
     <MyApp />
+    <UseEffectArray />
   </React.StrictMode>,
   document.getElementById("root")
 );
