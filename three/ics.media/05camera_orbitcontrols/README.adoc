@@ -1,0 +1,5 @@
+three.js 開発環境のテンプレートです。
+
+次のURLの解説を妥当性を確認するのに参考にしました。
+
+* https://ics.media/entry/16329/#webpack-ts-three[最新版TypeScript+webpack 5の環境構築まとめ(React, Vue.js, Three.jsのサンプル付き) - ICS MEDIA]
