@@ -1,1 +1,2 @@
-console.log("Hello World!");
+let message = "Hello, " + new Date();
+console.log(message);
