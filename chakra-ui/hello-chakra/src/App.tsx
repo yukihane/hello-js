@@ -1,9 +1,19 @@
-import React from 'react';
+import { Grid, GridItem } from "@chakra-ui/react";
+import React from "react";
+import { MyPane } from "./MyPane";
 
-function App() {
+export const App = () => {
   return (
-    <div>app</div>
+    <Grid templateColumns="repeat(2, 1fr)" gap={1}>
+      <GridItem bg="silver">
+        <div>Left</div>
+      </GridItem>
+      <GridItem bg="skyblue">
+        <div>Right</div>
+      </GridItem>
+      <GridItem colSpan={2} bg="tomato">
+        <div>Footer</div>
+      </GridItem>
+    </Grid>
   );
-}
-
-export default App;
+};
