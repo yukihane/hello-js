@@ -1,0 +1,4 @@
+template タグについて。
+
+* https://developer.mozilla.org/ja/docs/Web/HTML/Element/template
+* https://developer.mozilla.org/ja/docs/Web/Web_Components/Using_templates_and_slots
