@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Hello browser extensions",
+  "description": "This is my first browser extension",
+  "version": "0.1O",
+  "content_scripts": [
+    {
+      "js": ["hello.js"],
+      "matches": ["https://example.com/", "https://example.org/"]
+    }
+  ]
+}
