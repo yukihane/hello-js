@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "One - click bookmark ",
+  " description ": "Easy and simple bookmark ",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["activeTab", "bookmarks", "notifications"],
+  "browser_action": {
+    "default_icon": "browser_action_icon.png"
+  }
+}
