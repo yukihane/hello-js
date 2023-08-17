@@ -1,9 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { css } from "@emotion/react";
 
-function App() {
-  return <div>Hello</div>;
-}
+const color = "white";
+
+export const App = () => {
+  return (
+    <div
+      css={css`
+        padding: 32px;
+        background-color: hotpink;
+        font-size: 24px;
+        border-radius: 4px;
+        &:hover {
+          color: ${color};
+        }
+      `}
+    >
+      Hover to change color.
+    </div>
+  );
+};
 
 export default App;

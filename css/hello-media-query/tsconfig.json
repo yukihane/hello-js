@@ -14,6 +14,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
+    "types": ["@emotion/react/types/css-prop"],
+    "jsxImportSource": "@emotion/react",
 
     /* Linting */
     "strict": true,
