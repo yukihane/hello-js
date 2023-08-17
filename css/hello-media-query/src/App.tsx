@@ -1,23 +1,25 @@
 import { css } from "@emotion/react";
 
-const color = "white";
+const wrapper = css`
+  margin: 0 auto;
+
+  @media (min-width: 641px) {
+    max-width: 593px;
+    background-color: red;
+  }
+
+  @media (min-width: 1025px) {
+    max-width: 945px;
+  }
+
+  @media (min-width: 1281px) {
+    max-width: 1024px;
+    background-color: silver;
+  }
+`;
 
 export const App = () => {
-  return (
-    <div
-      css={css`
-        padding: 32px;
-        background-color: hotpink;
-        font-size: 24px;
-        border-radius: 4px;
-        &:hover {
-          color: ${color};
-        }
-      `}
-    >
-      Hover to change color.
-    </div>
-  );
+  return <div css={wrapper}>Hello</div>;
 };
 
 export default App;
