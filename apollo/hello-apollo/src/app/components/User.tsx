@@ -4,9 +4,9 @@ import { useQuery } from "@apollo/client";
 import { gql } from "../../../apollo/__generated__/client";
 
 const ALL_USERS = gql(`query ALL_USERS {
-    users {
-        name
-    }
+  users {
+    name
+  }
 }`);
 
 const User = () => {
