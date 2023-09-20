@@ -1,0 +1,12 @@
+{
+  "name": "ts-fullstack-gql",
+  "version": "1.0.0",
+  "description": "https://www.youtube.com/playlist?list=PLOvyErVZBqQNUVbvY6s5dAHy2XLkBC7oc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
