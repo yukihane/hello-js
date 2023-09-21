@@ -4,9 +4,17 @@
   "description": "https://www.youtube.com/playlist?list=PLOvyErVZBqQNUVbvY6s5dAHy2XLkBC7oc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:back && npm run build:front",
+    "build:back": "npm run build -w backend",
+    "build:front": "npm run build -w frontend",
+    "dev:back": "npm run dev -w backend",
+    "watch:back": "npm run watch -w backend",
+    "dev:front": "npm run dev -w frontend"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ]
 }
