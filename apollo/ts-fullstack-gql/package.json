@@ -9,7 +9,10 @@
     "build:front": "npm run build -w frontend",
     "dev:back": "npm run dev -w backend",
     "watch:back": "npm run watch -w backend",
-    "dev:front": "npm run dev -w frontend"
+    "dev:front": "npm run dev -w frontend",
+    "lint": "npm run lint:back && npm run lint:front",
+    "lint:back": "npm run lint -w backend",
+    "lint:front": "npm run lint -w frontend"
   },
   "keywords": [],
   "author": "",
