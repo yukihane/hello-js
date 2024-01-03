@@ -1,7 +1,23 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { gql, useQuery } from "@apollo/client";
+
+const AllTasksQuery = gql`
+  query {
+    tasks {
+      id
+      title
+      done
+    }
+  }
+`;
 
 const Home: NextPage = () => {
+  const { data, loading, error } = useQuery(AllTasksQuery);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <div>
       <Head>
@@ -11,7 +27,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Hello World</h1>
+        <h1>SIMPLE TASK LIST</h1>
+        <ul>
+          {data.tasks.map((task) => (
+            <li key={task.id}>
+              <p>{task.title}</p>
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
