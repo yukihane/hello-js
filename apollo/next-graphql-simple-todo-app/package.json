@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@prisma/client": "^5.7.1",
     "apollo-server-micro": "^3.13.0",
+    "formik": "^2.4.5",
     "framer-motion": "^4.1.17",
     "graphql": "^16.8.1",
     "micro-cors": "^0.1.1",
