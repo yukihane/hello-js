@@ -1,3 +1,12 @@
+https://zenn.dev/youichiro/articles/9e028d0a3b45e3 の写経。
+
+PostgreSQL起動は次のページを参考にした:
+https://qiita.com/zaburo/items/7ab51a7a4d9e1b2d1ec4
+
+```
+docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
