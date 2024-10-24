@@ -11,5 +11,8 @@
   "devDependencies": {
     "typescript": "~5.6.2",
     "vite": "^5.4.9"
+  },
+  "dependencies": {
+    "Vuexy": "file:../../../vuexy-admin-v10.2.0/html-version/Bootstrap5/vuexy-bootstrap-html-admin-template"
   }
 }
