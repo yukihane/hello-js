@@ -14,6 +14,6 @@
     "vite": "^5.4.9"
   },
   "dependencies": {
-    "Vuexy": "file:vuexy-bootstrap-html-admin-template"
+    "Vuexy": "file:../vuexy-bootstrap-html-admin-template"
   }
 }
