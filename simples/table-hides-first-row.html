@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+テーブルの行を表示・非表示にします。
+1行目は入力欄として利用する意図で、その入力欄の表示状態を切り替える、というシナリオです。
+-->
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +10,8 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- ボタンを追加 -->
+    <button id="toggleButton">Toggle First Row</button>
     <table>
       <thead>
         <tr>
@@ -34,5 +40,15 @@
         </tr>
       </tfoot>
     </table>
+
+    <script>
+      const toggleButton = document.getElementById("toggleButton");
+      const firstRow = document.querySelector("tbody tr:first-child");
+
+      toggleButton.addEventListener("click", () => {
+        const isHidden = firstRow.style.display === "none";
+        firstRow.style.display = isHidden ? "" : "none";
+      });
+    </script>
   </body>
 </html>
