@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+テーブル行をクリックすると編集可能状態にする
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      table * {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="editableTable">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>年齢</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>山田 太郎</td>
+          <td>18</td>
+          <td>012-3456-7890</td>
+        </tr>
+        <tr>
+          <td>佐藤 二郎</td>
+          <td>16</td>
+          <td>012-3456-0000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      const table = document.getElementById("editableTable");
+      let currentEditingRow = null;
+
+      function makeRowEditable(row) {
+        const cells = row.getElementsByTagName("td");
+        Array.from(cells).forEach((cell) => {
+          const value = cell.textContent;
+          const input = document.createElement("input");
+          input.type = "text";
+          input.value = value;
+          input.style.width = "90%";
+          cell.textContent = "";
+          cell.appendChild(input);
+        });
+      }
+
+      function saveRow(row) {
+        const inputs = row.getElementsByTagName("input");
+        Array.from(inputs).forEach((input) => {
+          const cell = input.parentElement;
+          cell.textContent = input.value;
+        });
+      }
+
+      table.addEventListener("click", (e) => {
+        const clickedRow = e.target.closest("tr");
+        if (!clickedRow || !clickedRow.getElementsByTagName("td").length)
+          return;
+
+        if (currentEditingRow && currentEditingRow !== clickedRow) {
+          saveRow(currentEditingRow);
+        }
+
+        if (currentEditingRow !== clickedRow) {
+          makeRowEditable(clickedRow);
+          currentEditingRow = clickedRow;
+        }
+      });
+    </script>
+  </body>
+</html>
