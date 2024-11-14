@@ -1,0 +1,103 @@
+<!doctype html>
+<!--
+テーブル行をクリックすると編集可能状態にする
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      table * {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="editableTable">
+      <template id="editRowTemplate">
+        <tr class="edit-row">
+          <td><input type="text" name="name" /></td>
+          <td><input type="text" name="age" /></td>
+          <td><input type="text" name="phone" /></td>
+        </tr>
+      </template>
+
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>年齢</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="display-row">
+          <td>山田 太郎</td>
+          <td>18</td>
+          <td>012-3456-7890</td>
+        </tr>
+        <tr class="display-row">
+          <td>佐藤 二郎</td>
+          <td>16</td>
+          <td>012-3456-0000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      const table = document.getElementById("editableTable");
+      const template = document.getElementById("editRowTemplate");
+      let currentEditingRow = null;
+
+      function makeRowEditable(displayRow) {
+        // 既存の編集行を削除
+        const oldEditRow = displayRow.nextElementSibling;
+        if (oldEditRow?.classList.contains("edit-row")) {
+          oldEditRow.remove();
+        }
+
+        // テンプレートから新しい編集行を作成
+        const editRow = template.content.cloneNode(true).querySelector("tr");
+        const inputs = editRow.getElementsByTagName("input");
+        const cells = displayRow.getElementsByTagName("td");
+
+        // 値をコピー
+        Array.from(cells).forEach((cell, i) => {
+          inputs[i].value = cell.textContent;
+        });
+
+        // 編集行を表示行の後に挿入
+        displayRow.after(editRow);
+        displayRow.style.display = "none";
+      }
+
+      function saveRow(editRow) {
+        const displayRow = editRow.previousElementSibling;
+        const inputs = editRow.getElementsByTagName("input");
+        const cells = displayRow.getElementsByTagName("td");
+
+        // 値を保存
+        Array.from(inputs).forEach((input, i) => {
+          cells[i].textContent = input.value;
+        });
+
+        displayRow.style.display = "";
+        editRow.remove();
+      }
+
+      table.addEventListener("click", (e) => {
+        const clickedRow = e.target.closest("tr");
+        if (!clickedRow || !clickedRow.classList.contains("display-row"))
+          return;
+
+        const currentEditRow = table.querySelector(".edit-row");
+        if (currentEditRow) {
+          saveRow(currentEditRow);
+        }
+
+        makeRowEditable(clickedRow);
+      });
+    </script>
+  </body>
+</html>
