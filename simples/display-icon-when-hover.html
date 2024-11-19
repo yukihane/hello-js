@@ -8,17 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      /*
+      body * {
+        border: 1px solid black;
+      }
+      */
       table {
-        width: 100%;
+        position: relative;
+      }
+      table col:nth-child(1) {
+        width: 200px;
+      }
+      table col:nth-child(2) {
+        width: 400px;
+      }
+      table col:nth-child(3) {
+        width: 300px;
+      }
+      tr {
+        position: relative;
       }
       .action-icon {
         display: none;
-        text-align: right;
-        width: 50px; /* Adjust as needed */
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
       }
 
       tr:hover .action-icon {
-        display: table-cell;
+        display: block;
       }
 
       .action-icon a {
@@ -31,6 +51,11 @@
   <body>
     <div>
       <table>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+        </colgroup>
         <thead>
           <tr>
             <th>名前</th>
