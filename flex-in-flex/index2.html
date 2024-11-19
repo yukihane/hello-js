@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Direction Example</title>
+    <style>
+        .parent {
+            display: flex;
+            flex-direction: column; /* This will not be inherited by child elements */
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .child-1 {
+            display: flex;
+            flex-direction: column; /* Specifying flex-direction for this child */
+        }
+
+        .child-2 {
+            /* No flex-direction specified, will use default row */
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child child-1">
+            <div>Item 1</div>
+            <div>Item 2</div>
+        </div>
+        <div class="child child-2">
+            <div>Item A</div>
+            <div>Item B</div>
+        </div>
+    </div>
+</body>
+</html>

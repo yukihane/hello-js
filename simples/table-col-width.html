@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+テーブルのそれぞれの列を指定した幅にする
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      table * {
+        border: 1px solid #000;
+      }
+      #myTable col:nth-child(1) {
+        width: 200px;
+      }
+      #myTable col:nth-child(2) {
+        width: 400px;
+      }
+      #myTable col:nth-child(3) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="myTable">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          <td>名前</td>
+          <td>電話番号</td>
+          <td>年齢</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>山田 太郎</td>
+          <td>090-1234-5678</td>
+          <td>22</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        /* 縦横いっぱいに表示し、かつスクロールバーを出さない */
+        /* marginやpaddingを0に設定するか、reset.cssを導入すれば良い */
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* スクロールバーを非表示にする */
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid blue;
+      }
+      .header {
+        background-color: yellow;
+      }
+      .content {
+        background-color: lightblue;
+        flex: 1;
+        overflow: auto; /* コンテンツがはみ出た場合にスクロールバーを表示する */
+      }
+      .footer {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>
