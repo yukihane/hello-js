@@ -1,4 +1,14 @@
 <!doctype html>
+<!--
+position ablsolute; の親が position relative; である場合とデフォルト(static)の場合の違いを確認する。
+以下Copilotの説明:
+
+親要素が position: relative; の場合、子要素の position: absolute; は親要素を基準に配置されます。具体的には、子要素の top: 10px; と right: 10px; は親要素の左上から10ピクセルずつ離れた位置に配置されます。
+
+一方、親要素がデフォルトの position: static; の場合、子要素の position: absolute; は最も近い position が static でない先祖を基準にします。該当する先祖が存在しない場合、子要素はビューポート（画面全体）を基準に配置されます。
+
+この違いにより、親要素の position プロパティを変更することで、子要素の配置基準を制御できます。
+-->
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
