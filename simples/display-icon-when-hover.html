@@ -9,6 +9,21 @@
       table {
         width: 100%;
       }
+      .action-icon {
+        display: none;
+        text-align: right;
+        width: 50px; /* Adjust as needed */
+      }
+
+      tr:hover .action-icon {
+        display: table-cell;
+      }
+
+      .action-icon a {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -26,6 +41,12 @@
             <td>山田 太郎</td>
             <td>東京都港区芝公園４丁目２−８</td>
             <td>012-3456-7890</td>
+            <td class="action-icon">
+              <a href="#">
+                &#9998;
+                <!-- Example icon -->
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
