@@ -1,31 +1,28 @@
 <!doctype html>
-<!--
-https://note.com/gorojy/n/ne796b960e9ca
-の確認
--->
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Relative Positioning</title>
     <style>
-      .container {
+      .parent {
         position: relative;
         width: 200px;
         height: 200px;
         background-color: yellowgreen;
       }
-      .box {
+      .child {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 10px;
+        right: 10px;
         background-color: blueviolet;
+        padding: 10px;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="box">絶対位置指定されたボックス</div>
+    <div class="parent">
+      親要素（relative）
+      <div class="child">子要素（absolute）</div>
     </div>
   </body>
 </html>
