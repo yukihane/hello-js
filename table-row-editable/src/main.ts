@@ -26,6 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       tbody.replaceChild(editableTr, tr);
+
+      editableTr.addEventListener("blur", (event) => {
+        if (event.target instanceof HTMLElement) {
+          const tagName = event.target.tagName;
+          console.log(`blur event fired: ${tagName}`);
+        }
+      });
+      editableTr.addEventListener("focusout", (event) => {
+        if (event.target instanceof HTMLElement) {
+          const tagName = event.target.tagName;
+          console.log(`focusout event fired: ${tagName}`);
+        }
+      });
     }
   });
 });
