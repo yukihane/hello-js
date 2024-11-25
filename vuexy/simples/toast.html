@@ -1,6 +1,8 @@
 <!doctype html>
 <!--
 toastを表示するとレイアウトが崩れるのは初めからなのか、何か編集してしまったからなのかを確認する。
+結果、classに指定する値が間違っているようだった。
+https://demos.pixinvent.com/vuexy-html-admin-template/documentation/ui-toasts.html#toasts-placement
 -->
 <html
   lang="ja"
@@ -126,7 +128,8 @@ toastを表示するとレイアウトが崩れるのは初めからなのか、
               <div
                 class="flex-shrink-1 flex-grow-1 container-p-x container-p-y"
               >
-                Content
+                <button type="button" id="toastButton">toast</button>
+                <div id="toastContainer"></div>
               </div>
             </div>
             <!--/ Content -->
@@ -152,6 +155,28 @@ toastを表示するとレイアウトが崩れるのは初めからなのか、
       <!-- Drag Target Area To SlideIn Menu On Small Screens -->
       <div class="drag-target"></div>
     </div>
+    <!-- Toast -->
+    <template id="toastTemplate">
+      <div
+        class="bs-toast toast fade show position-absolute align-items-center text-bg-primary top-0 end-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            <span class="toast-message"></span>
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </template>
+
     <!--/ Layout wrapper -->
     <!-- / Layout wrapper -->
 
@@ -175,5 +200,6 @@ toastを表示するとレイアウトが崩れるのは初めからなのか、
     <script src="../vuexy-bootstrap-html-admin-template/assets/js/main.js"></script>
 
     <!-- Page JS -->
+    <script type="module" src="./toast.js"></script>
   </body>
 </html>
